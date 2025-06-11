@@ -23,14 +23,14 @@ public class EmployeeController {
     @Autowired
     private LeaveService leaveService;
 
-    // ✅ 1. Apply for Leave
+    //   Apply for Leave
     @PostMapping("/apply-leave")
     public ResponseEntity<String> applyLeave(@RequestBody LeaveRequestDto dto) {
         String result = leaveService.applyLeave(dto);
         return ResponseEntity.ok(result);
     }
 
-    // ✅ 2. View All Leave Requests of a Particular Employee
+    //   View All Leave Requests of a Particular Employee
     @GetMapping("/leaves/{empId}")
     public ResponseEntity<List<LeaveRequest>> getAllLeaves(@PathVariable String empId) {
         List<LeaveRequest> leaves = leaveService.getLeavesForEmployee(empId);

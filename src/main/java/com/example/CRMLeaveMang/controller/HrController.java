@@ -57,13 +57,13 @@ public class HrController {
     @Autowired
     private LeaveService leaveService;
 
-    // 1. Get all leave requests
+    // Get all leave requests
     @GetMapping("/leave-requests")
     public ResponseEntity<List<LeaveRequest>> getAllLeaveRequests() {
         return ResponseEntity.ok(leaveService.getAllLeaveRequests());
     }
 
-    // 2. Approve or Reject Leave by Leave ID
+    //  Approve or Reject Leave by Leave ID
     @PutMapping("/update-status/{leaveId}")
     public ResponseEntity<String> updateLeaveStatus(
             @PathVariable Long leaveId,
@@ -80,7 +80,7 @@ public class HrController {
         return ResponseEntity.ok(result);
     }
 
-    // 3. View leave history for specific employee
+    // View leave history for specific employee
     @GetMapping("/leave-requests/{empId}")
     public ResponseEntity<List<LeaveRequest>> getLeaveHistory(@PathVariable String empId) {
         return ResponseEntity.ok(leaveService.getLeavesForEmployee(empId));

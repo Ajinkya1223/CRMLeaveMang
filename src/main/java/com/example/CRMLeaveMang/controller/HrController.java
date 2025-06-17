@@ -43,6 +43,7 @@ package com.example.CRMLeaveMang.controller;
 import java.util.List;
 
 import com.example.CRMLeaveMang.model.LeaveRequest;
+import com.example.CRMLeaveMang.repository.LeaveRequestRepository;
 import com.example.CRMLeaveMang.service.LeaveService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,6 +57,16 @@ public class HrController {
 
     @Autowired
     private LeaveService leaveService;
+    
+    @Autowired
+    private LeaveRequestRepository leaveRequestRepository;
+    
+ // Get pending leave requests that TL has seen but HR has not
+    @GetMapping("/hr/notifications")
+    public ResponseEntity<List<LeaveRequest>> getUnseenForHR() {
+        List<LeaveRequest> pendingForHR = leaveRequestRepository.findBySeenByTLTrueAndSeenByHRFalse();
+        return ResponseEntity.ok(pendingForHR);
+    }
 
     // Get all leave requests
     @GetMapping("/leave-requests")

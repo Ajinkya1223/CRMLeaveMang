@@ -12,8 +12,26 @@ public class LeaveRequestDto {
 	    private String reason;
 	    private String email; 
 	    
+	    private boolean seenByTLStatus = false;
+	    private boolean seenByHRStatus = false;
 	    
 	    
+	    
+	    
+	    
+		
+		public boolean isSeenByTLStatus() {
+			return seenByTLStatus;
+		}
+		public void setSeenByTLStatus(boolean seenByTLStatus) {
+			this.seenByTLStatus = seenByTLStatus;
+		}
+		public boolean isSeenByHRStatus() {
+			return seenByHRStatus;
+		}
+		public void setSeenByHRStatus(boolean seenByHRStatus) {
+			this.seenByHRStatus = seenByHRStatus;
+		}
 		public String getEmail() {
 			return email;
 		}

@@ -30,6 +30,13 @@ public class LeaveRequest {
     private String status = "PENDING";
     private LocalDate appliedOn;
     
+    @Column(name = "SeenByTL")
+    private boolean seenByTL = false;
+
+    @Column(name = "SeenByHR")
+    private boolean seenByHR = false;
+    
+    
     public String getEmpId() {
 		return empId;
 	}
@@ -92,6 +99,22 @@ public class LeaveRequest {
 		// TODO Auto-generated method stub
 		 this.email = email;
 	}
+	public boolean isSeenByTL() {
+		return seenByTL;
+	}
+	public void setSeenByTL(boolean seenByTL) {
+		this.seenByTL = seenByTL;
+	}
+	public boolean isSeenByHR() {
+		return seenByHR;
+	}
+	public void setSeenByHR(boolean seenByHR) {
+		this.seenByHR = seenByHR;
+	}
+	
+	
+	
+	
     
     
 

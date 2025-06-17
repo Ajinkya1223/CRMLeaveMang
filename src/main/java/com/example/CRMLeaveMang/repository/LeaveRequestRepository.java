@@ -10,4 +10,8 @@ public interface LeaveRequestRepository extends JpaRepository<LeaveRequest, Long
 
 	List<LeaveRequest> findByEmployeeEmpId(String empId);
     List<LeaveRequest> findByStatus(String status); // For HR
+    
+    List<LeaveRequest> findBySeenByTLFalse();  // For TL notifications
+
+    List<LeaveRequest> findBySeenByTLTrueAndSeenByHRFalse(); // For HR notifications
 }
